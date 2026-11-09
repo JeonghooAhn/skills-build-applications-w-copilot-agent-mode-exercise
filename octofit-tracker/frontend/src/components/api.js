@@ -2,12 +2,14 @@ const configuredCodespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
 const codespaceHost = globalThis.location?.hostname.match(/^(.+)-5173\.app\.github\.dev$/)
 const codespaceName = configuredCodespaceName || codespaceHost?.[1]
 
-const apiBaseUrl = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev/api`
-  : 'http://localhost:8000/api'
+const apiOrigin = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev`
+  : 'http://localhost:8000'
 
-export function getApiUrl(component) {
-  return `${apiBaseUrl}/${component}/`
+export function getApiUrl(endpoint) {
+  if (endpoint.startsWith('https://')) return endpoint
+  const apiPath = endpoint.startsWith('/api/') ? endpoint : `/api/${endpoint}/`
+  return `${apiOrigin}${apiPath}`
 }
 
 export function getCollection(payload) {

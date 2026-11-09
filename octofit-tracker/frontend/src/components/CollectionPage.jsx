@@ -19,6 +19,7 @@ function displayValue(item, field) {
 }
 
 export default function CollectionPage({ title, description, endpoint, fields }) {
+  const resourceName = endpoint.split('/').filter(Boolean).at(-1)
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -51,7 +52,7 @@ export default function CollectionPage({ title, description, endpoint, fields })
     <section className="collection-page" aria-labelledby="page-title">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">OCTOFIT / {endpoint.toUpperCase()}</p>
+          <p className="eyebrow">OCTOFIT / {resourceName.toUpperCase()}</p>
           <h1 id="page-title">{title}</h1>
           <p className="page-description">{description}</p>
         </div>

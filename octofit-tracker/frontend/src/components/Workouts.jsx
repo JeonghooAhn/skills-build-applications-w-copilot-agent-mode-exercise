@@ -7,12 +7,15 @@ const fields = [
   { key: 'durationMinutes', label: '시간 (분)' },
   { key: 'description', label: '설명' },
 ]
+const endpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+  : '/api/workouts/'
 
 export default function Workouts() {
   return (
     <CollectionPage
       description="목표에 맞는 운동 아이디어를 찾아보세요."
-      endpoint="workouts"
+      endpoint={endpoint}
       fields={fields}
       title="운동 추천"
     />
