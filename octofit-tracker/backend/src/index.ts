@@ -6,7 +6,7 @@ import teamsRouter from './routes/teams.js';
 import usersRouter from './routes/users.js';
 import workoutsRouter from './routes/workouts.js';
 
-const app = express();
+const app = express(); 
 const port = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
