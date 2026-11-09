@@ -21,4 +21,4 @@ GitHub Codespaces에서는 프런트엔드 디렉터리에 `.env.local` 파일�
 VITE_CODESPACE_NAME=your-codespace-name
 ```
 
-`VITE_CODESPACE_NAME`이 설정되면 API 요청은 `https://<codespace-name>-8000.app.github.dev/api/<resource>/`로 전송됩니다. 값을 설정하지 않으면 로컬 개발용 `http://localhost:8000/api/<resource>/`을 사용하므로 `https://undefined-8000...` 주소가 만들어지지 않습니다. 환경 변수 변경 후에는 Vite 개발 서버를 다시 시작하세요.
+`VITE_CODESPACE_NAME`이 설정되면 API 요청은 `https://<codespace-name>-8000.app.github.dev/api/<resource>/`로 전송됩니다. 값을 설정하지 않아도 Codespaces 프런트엔드 호스트에서 이름을 자동으로 판별합니다. 로컬에서는 `http://localhost:8000/api/<resource>/`을 사용하므로 `https://undefined-8000...` 주소가 만들어지지 않습니다. 환경 변수 변경 후에는 Vite 개발 서버를 다시 시작하세요.
