@@ -1,16 +1,24 @@
-# React + Vite
+# OctoFit Tracker 프런트엔드
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React 19, Vite, Bootstrap, React Router를 사용하는 OctoFit Tracker 프레젠테이션 계층입니다.
 
-Currently, two official plugins are available:
+## 실행
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+API와 MongoDB를 실행한 뒤 프런트엔드 개발 서버를 시작합니다.
 
-## React Compiler
+```bash
+npm --prefix octofit-tracker/frontend install
+npm --prefix octofit-tracker/frontend run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+개발 서버는 `http://localhost:5173`에서 실행됩니다.
 
-## Expanding the Oxlint configuration
+## API 주소 설정
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+GitHub Codespaces에서는 프런트엔드 디렉터리에 `.env.local` 파일을 만들고 Codespace 이름을 설정하세요.
+
+```dotenv
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+`VITE_CODESPACE_NAME`이 설정되면 API 요청은 `https://<codespace-name>-8000.app.github.dev/api/<resource>/`로 전송됩니다. 값을 설정하지 않으면 로컬 개발용 `http://localhost:8000/api/<resource>/`을 사용하므로 `https://undefined-8000...` 주소가 만들어지지 않습니다. 환경 변수 변경 후에는 Vite 개발 서버를 다시 시작하세요.
